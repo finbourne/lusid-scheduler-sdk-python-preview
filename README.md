@@ -15,9 +15,9 @@ pip install lusid-scheduler-sdk-preview finbourne-sdk-utilities
 
 ```
 import lusid_scheduler
-from fbnsdkutilities import ApiClientFactoryBase
+from fbnsdkutilities import ApiClientFactory
 
-scheduler_factory = ApiClientFactoryBase(lusid_scheduler, api_secrets_filename="/path/to/secrets.json")
+scheduler_factory = ApiClientFactory(lusid_scheduler, api_secrets_filename="/path/to/secrets.json")
 jobs_api = scheduler_factory.build(lusid_scheduler.api.JobsApi)
 
 jobs_api.list_jobs()
