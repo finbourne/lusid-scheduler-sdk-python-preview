@@ -1,2 +1,2 @@
-from lusid_workflows.utilities.config_keys import ConfigKeys
+from lusid_scheduler.utilities.config_keys import ConfigKeys
 
