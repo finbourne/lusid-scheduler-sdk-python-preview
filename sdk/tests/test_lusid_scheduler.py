@@ -7,7 +7,7 @@ import lusid_scheduler
 from lusid_scheduler import JobsApi
 from fbnsdkutilities import ApiClientFactory
 
-class LusidWorkflowsTests(unittest.TestCase):
+class LusidSchedulerTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
