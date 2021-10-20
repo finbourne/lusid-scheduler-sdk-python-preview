@@ -9,7 +9,7 @@ This is the Python Preview SDK for the Scheduler API for [LUSID by FINBOURNE](ht
 
 ## Installation
 
-The PyPi package for the LUSID Scheduler SDK can installed using the following:
+The PyPi package for the LUSID Scheduler Preview SDK can installed using the following:
 
 ```
 pip install lusid-scheduler-sdk-preview finbourne-sdk-utilities
