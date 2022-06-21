@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.0.537",
+    "version": "0.0.539",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -3695,8 +3695,9 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "name": {
-            "maxLength": 50,
+            "maxLength": 512,
             "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "Name of the job"
           },
@@ -3796,8 +3797,9 @@
             "$ref": "#/components/schemas/ResourceId"
           },
           "name": {
-            "maxLength": 50,
+            "maxLength": 512,
             "minLength": 1,
+            "pattern": "^[\\s\\S]*$",
             "type": "string",
             "description": "A display name for this Schedule"
           },
