@@ -15,7 +15,7 @@ services:
       - FBN_PROXY_ADDRESS
       - FBN_PROXY_USERNAME
       - FBN_PROXY_PASSWORD
-      - FBN_SCHEDULER_API_URL
-      - FBN_SDK_ACCESS_TOKEN
+      - FBN_SCHEDULER_API_URL=${FBN_LUSID_API_URL}/../scheduler2
+      - FBN_SDK_ACCESS_TOKEN=${FBN_ACCESS_TOKEN}
     volumes:
       - .:/usr/src

@@ -10,7 +10,5 @@ RUN pip install --no-cache-dir -r requirements.txt -r requirements.dev.txt
 
 RUN pip --no-cache-dir install --upgrade awscli
 
-ENV FBN_SCHEDULER_API_URL ${FBN_LUSID_API_URL}/../scheduler2
-
 #CMD /bin/bash
 ENTRYPOINT PYTHONPATH=/usr/src/:/usr/src/tests python -m unittest discover -v
