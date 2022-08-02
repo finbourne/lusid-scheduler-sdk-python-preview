@@ -14,8 +14,8 @@ class LusidSchedulerTests(unittest.TestCase):
         cls.logger = logging.getLogger()
         cls.logger.setLevel(logging.INFO)
 
-        if os.getenv("FBN_SDK_ACCESS_TOKEN", None) is not None:
-            cls.api_factory = ApiClientFactory(lusid_scheduler, token=os.environ.get("FBN_SDK_ACCESS_TOKEN"))
+        if os.getenv("FBN_ACCESS_TOKEN", None) is not None:
+            cls.api_factory = ApiClientFactory(lusid_scheduler, token=os.environ.get("FBN_ACCESS_TOKEN"))
         else:
             cls.api_factory = ApiClientFactory(lusid_scheduler, api_secrets_filename="secrets.json")
 
