@@ -23,6 +23,13 @@ from lusid_scheduler.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
+from lusid_scheduler.models.image import Image
+from lusid_scheduler.models.lusid_problem_details import LusidProblemDetails
+from lusid_scheduler.models.lusid_validation_problem_details import LusidValidationProblemDetails
+from lusid_scheduler.models.resource_list_of_image_summary import ResourceListOfImageSummary
+from lusid_scheduler.models.resource_list_of_repository import ResourceListOfRepository
+from lusid_scheduler.models.upload_image_instructions import UploadImageInstructions
+from lusid_scheduler.models.upload_image_request import UploadImageRequest
 
 
 class ImagesApi(object):
@@ -94,10 +101,10 @@ class ImagesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (str, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -111,7 +118,8 @@ class ImagesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -144,7 +152,7 @@ class ImagesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -156,9 +164,14 @@ class ImagesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "str",
             400: "LusidValidationProblemDetails",
@@ -239,10 +252,10 @@ class ImagesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(file, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (file, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -256,7 +269,8 @@ class ImagesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -281,7 +295,7 @@ class ImagesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -293,9 +307,14 @@ class ImagesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "file",
             400: "LusidValidationProblemDetails",
@@ -375,10 +394,10 @@ class ImagesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(Image, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (Image, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -392,7 +411,8 @@ class ImagesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -425,7 +445,7 @@ class ImagesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -437,9 +457,14 @@ class ImagesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "Image",
             400: "LusidValidationProblemDetails",
@@ -539,10 +564,10 @@ class ImagesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ResourceListOfImageSummary, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ResourceListOfImageSummary, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -561,7 +586,8 @@ class ImagesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -615,7 +641,7 @@ class ImagesApi(object):
         if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -627,9 +653,14 @@ class ImagesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "ResourceListOfImageSummary",
             400: "LusidValidationProblemDetails",
@@ -725,10 +756,10 @@ class ImagesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ResourceListOfRepository, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ResourceListOfRepository, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -746,7 +777,8 @@ class ImagesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -798,7 +830,7 @@ class ImagesApi(object):
         if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -810,9 +842,14 @@ class ImagesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "ResourceListOfRepository",
             400: "LusidValidationProblemDetails",
@@ -894,10 +931,10 @@ class ImagesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(UploadImageInstructions, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (UploadImageInstructions, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -911,7 +948,8 @@ class ImagesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -934,7 +972,7 @@ class ImagesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -958,7 +996,7 @@ class ImagesApi(object):
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "UploadImageInstructions",
             400: "LusidValidationProblemDetails",

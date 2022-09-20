@@ -23,6 +23,17 @@ from lusid_scheduler.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
+from lusid_scheduler.models.create_job_request import CreateJobRequest
+from lusid_scheduler.models.job_definition import JobDefinition
+from lusid_scheduler.models.job_run_result import JobRunResult
+from lusid_scheduler.models.lusid_problem_details import LusidProblemDetails
+from lusid_scheduler.models.lusid_validation_problem_details import LusidValidationProblemDetails
+from lusid_scheduler.models.resource_list_of_job_definition import ResourceListOfJobDefinition
+from lusid_scheduler.models.resource_list_of_job_history import ResourceListOfJobHistory
+from lusid_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
+from lusid_scheduler.models.start_job_request import StartJobRequest
+from lusid_scheduler.models.start_job_response import StartJobResponse
+from lusid_scheduler.models.update_job_request import UpdateJobRequest
 
 
 class JobsApi(object):
@@ -94,10 +105,10 @@ class JobsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(JobDefinition, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (JobDefinition, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -111,7 +122,8 @@ class JobsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -134,7 +146,7 @@ class JobsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -158,7 +170,7 @@ class JobsApi(object):
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "JobDefinition",
             400: "LusidValidationProblemDetails",
@@ -242,10 +254,10 @@ class JobsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ResourceListOfScheduleDefinition, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ResourceListOfScheduleDefinition, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -260,7 +272,8 @@ class JobsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -291,7 +304,7 @@ class JobsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -303,9 +316,14 @@ class JobsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "ResourceListOfScheduleDefinition",
             400: "LusidValidationProblemDetails",
@@ -401,10 +419,10 @@ class JobsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ResourceListOfJobHistory, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ResourceListOfJobHistory, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -422,7 +440,8 @@ class JobsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -472,7 +491,7 @@ class JobsApi(object):
         if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -484,9 +503,14 @@ class JobsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "ResourceListOfJobHistory",
             400: "LusidValidationProblemDetails",
@@ -566,10 +590,10 @@ class JobsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (str, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -583,7 +607,8 @@ class JobsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -612,7 +637,7 @@ class JobsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -624,9 +649,14 @@ class JobsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "str",
             400: "LusidValidationProblemDetails",
@@ -706,10 +736,10 @@ class JobsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(JobRunResult, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (JobRunResult, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -723,7 +753,8 @@ class JobsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -752,7 +783,7 @@ class JobsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -764,9 +795,14 @@ class JobsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "JobRunResult",
             400: "LusidValidationProblemDetails",
@@ -850,10 +886,10 @@ class JobsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ResourceListOfScheduleDefinition, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ResourceListOfScheduleDefinition, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -868,7 +904,8 @@ class JobsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -899,7 +936,7 @@ class JobsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -911,9 +948,14 @@ class JobsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "ResourceListOfScheduleDefinition",
             400: "LusidValidationProblemDetails",
@@ -1009,10 +1051,10 @@ class JobsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ResourceListOfJobDefinition, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ResourceListOfJobDefinition, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -1030,7 +1072,8 @@ class JobsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -1082,7 +1125,7 @@ class JobsApi(object):
         if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1094,9 +1137,14 @@ class JobsApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "ResourceListOfJobDefinition",
             400: "LusidValidationProblemDetails",
@@ -1184,10 +1232,10 @@ class JobsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(StartJobResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (StartJobResponse, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -1203,7 +1251,8 @@ class JobsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -1238,7 +1287,7 @@ class JobsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1262,7 +1311,7 @@ class JobsApi(object):
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             202: "StartJobResponse",
             400: "LusidValidationProblemDetails",
@@ -1350,10 +1399,10 @@ class JobsApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(JobDefinition, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (JobDefinition, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -1369,7 +1418,8 @@ class JobsApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -1404,7 +1454,7 @@ class JobsApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1428,7 +1478,7 @@ class JobsApi(object):
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "JobDefinition",
             400: "LusidValidationProblemDetails",

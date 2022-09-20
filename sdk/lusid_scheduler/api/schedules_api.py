@@ -23,6 +23,13 @@ from lusid_scheduler.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
+from lusid_scheduler.models.create_schedule_request import CreateScheduleRequest
+from lusid_scheduler.models.lusid_problem_details import LusidProblemDetails
+from lusid_scheduler.models.lusid_validation_problem_details import LusidValidationProblemDetails
+from lusid_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
+from lusid_scheduler.models.schedule_definition import ScheduleDefinition
+from lusid_scheduler.models.start_schedule_response import StartScheduleResponse
+from lusid_scheduler.models.update_schedule_request import UpdateScheduleRequest
 
 
 class SchedulesApi(object):
@@ -94,10 +101,10 @@ class SchedulesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ScheduleDefinition, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ScheduleDefinition, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -111,7 +118,8 @@ class SchedulesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -134,7 +142,7 @@ class SchedulesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -158,7 +166,7 @@ class SchedulesApi(object):
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             201: "ScheduleDefinition",
             400: "LusidValidationProblemDetails",
@@ -242,7 +250,7 @@ class SchedulesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
@@ -260,7 +268,8 @@ class SchedulesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -291,7 +300,7 @@ class SchedulesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -303,9 +312,14 @@ class SchedulesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {}
 
         return self.api_client.call_api(
@@ -390,10 +404,10 @@ class SchedulesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ScheduleDefinition, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ScheduleDefinition, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -409,7 +423,8 @@ class SchedulesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -446,7 +461,7 @@ class SchedulesApi(object):
         if 'enable' in local_var_params and local_var_params['enable'] is not None:  # noqa: E501
             query_params.append(('enable', local_var_params['enable']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -458,9 +473,14 @@ class SchedulesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "ScheduleDefinition",
             400: "LusidValidationProblemDetails",
@@ -544,10 +564,10 @@ class SchedulesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ScheduleDefinition, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ScheduleDefinition, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -562,7 +582,8 @@ class SchedulesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -593,7 +614,7 @@ class SchedulesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -605,9 +626,14 @@ class SchedulesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "ScheduleDefinition",
             400: "LusidValidationProblemDetails",
@@ -703,10 +729,10 @@ class SchedulesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ResourceListOfScheduleDefinition, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ResourceListOfScheduleDefinition, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -724,7 +750,8 @@ class SchedulesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -776,7 +803,7 @@ class SchedulesApi(object):
         if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
             query_params.append(('filter', local_var_params['filter']))  # noqa: E501
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -788,9 +815,14 @@ class SchedulesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "ResourceListOfScheduleDefinition",
             400: "LusidValidationProblemDetails",
@@ -874,10 +906,10 @@ class SchedulesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(StartScheduleResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (StartScheduleResponse, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -892,7 +924,8 @@ class SchedulesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -923,7 +956,7 @@ class SchedulesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -935,9 +968,14 @@ class SchedulesApi(object):
 
         header_params['Accept-Encoding'] = "gzip, deflate, br"
 
+
+        # set the LUSID header
+        header_params['X-LUSID-SDK-Language'] = 'Python'
+        header_params['X-LUSID-SDK-Version'] = '0.0.615'
+
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             202: "StartScheduleResponse",
             400: "LusidValidationProblemDetails",
@@ -1025,10 +1063,10 @@ class SchedulesApi(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
-        :return: Returns the result object.
+        :return: Returns the result object, the HTTP status code, and the headers.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(ScheduleDefinition, status_code(int), headers(HTTPHeaderDict))
+        :rtype: (ScheduleDefinition, int, HTTPHeaderDict)
         """
 
         local_var_params = locals()
@@ -1044,7 +1082,8 @@ class SchedulesApi(object):
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_headers'
             ]
         )
 
@@ -1079,7 +1118,7 @@ class SchedulesApi(object):
 
         query_params = []
 
-        header_params = {}
+        header_params = dict(local_var_params.get('_headers', {}))
 
         form_params = []
         local_var_files = {}
@@ -1103,7 +1142,7 @@ class SchedulesApi(object):
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
-        
+
         response_types_map = {
             200: "ScheduleDefinition",
             400: "LusidValidationProblemDetails",

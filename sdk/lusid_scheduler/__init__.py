@@ -76,3 +76,11 @@ from lusid_scheduler.models.upload_image_instructions import UploadImageInstruct
 from lusid_scheduler.models.upload_image_request import UploadImageRequest
 from lusid_scheduler.models.vulnerability import Vulnerability
 
+# import utilities into sdk package
+from fbnsdkutilities.utilities.api_client_builder import ApiClientBuilder
+from fbnsdkutilities.utilities.api_configuration import ApiConfiguration
+from fbnsdkutilities.utilities.api_configuration_loader import ApiConfigurationLoader
+from fbnsdkutilities.utilities.refreshing_token import RefreshingToken
+
+# import tcp utilities
+from fbnsdkutilities.tcp.tcp_keep_alive_probes import TCPKeepAlivePoolManager, TCPKeepAliveProxyManager
