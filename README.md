@@ -26,4 +26,3 @@ jobs_api = scheduler_factory.build(lusid_scheduler.api.JobsApi)
 
 jobs_api.list_jobs()
 ```
-
