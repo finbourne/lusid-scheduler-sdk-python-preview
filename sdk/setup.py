@@ -38,7 +38,7 @@ REQUIRES = [
     "python-dateutil >= 2.5.3",
     "urllib3 >= 1.15.1",
     "requests >= 2.21.0",
-    "finbourne-sdk-utilities"
+    "finbourne-sdk-utilities  >= 0.0.10"
 ]
 
 version = {}
