@@ -201,7 +201,7 @@ with lusid_scheduler.ApiClient(configuration) as api_client:
     page = 'page_example' # str | The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 sort_by = ['sort_by_example'] # list[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
 start = 56 # int | This field is obsolete, the value of this field would not be considered. (optional)
-limit = 56 # int | When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified (optional)
+limit = 56 # int | When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000. (optional)
 filter = 'filter_example' # str | Expression to filter the result set. (optional)
 
     try:
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
  **page** | **str**| The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **sort_by** | [**list[str]**](str.md)| Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. | [optional] 
  **start** | **int**| This field is obsolete, the value of this field would not be considered. | [optional] 
- **limit** | **int**| When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified | [optional] 
+ **limit** | **int**| When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000. | [optional] 
  **filter** | **str**| Expression to filter the result set. | [optional] 
 
 ### Return type
@@ -503,7 +503,7 @@ with lusid_scheduler.ApiClient(configuration) as api_client:
     page = 'page_example' # str | The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
 sort_by = ['sort_by_example'] # list[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
 start = 56 # int | When paginating, skip this number of results. (optional)
-limit = 2000 # int | When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified (optional) (default to 2000)
+limit = 2000 # int | When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000. (optional) (default to 2000)
 filter = 'filter_example' # str | Expression to filter the result set. (optional)
 
     try:
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
  **page** | **str**| The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **sort_by** | [**list[str]**](str.md)| Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. | [optional] 
  **start** | **int**| When paginating, skip this number of results. | [optional] 
- **limit** | **int**| When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified | [optional] [default to 2000]
+ **limit** | **int**| When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000. | [optional] [default to 2000]
  **filter** | **str**| Expression to filter the result set. | [optional] 
 
 ### Return type
