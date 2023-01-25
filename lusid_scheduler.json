@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.0.740",
+    "version": "0.0.744",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -27,7 +27,7 @@
           "Images"
         ],
         "summary": "[EXPERIMENTAL] UploadImage: Uploads an image to be used for Scheduler jobs",
-        "description": "Every image must have at least one tag",
+        "description": "Every image must have at least one tag. Note: your image will not be available until the returned Docker commands are executed.",
         "operationId": "UploadImage",
         "requestBody": {
           "description": "Request to upload image",
@@ -123,9 +123,7 @@
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing images from a previous call to list images.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -136,9 +134,7 @@
               "type": "array",
               "items": {
                 "type": "string"
-              },
-              "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.",
-              "nullable": true
+              }
             },
             "x-nullable": true
           },
@@ -150,9 +146,7 @@
               "maximum": 5000,
               "minimum": 0,
               "type": "integer",
-              "description": "When paginating, skip this number of results.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             },
             "x-nullable": true
           },
@@ -164,10 +158,8 @@
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.",
               "format": "int32",
-              "default": 2000,
-              "nullable": true
+              "default": 2000
             },
             "x-nullable": true
           },
@@ -178,9 +170,7 @@
             "schema": {
               "maxLength": 1024,
               "minLength": 0,
-              "type": "string",
-              "description": "Expression to filter the result set.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -264,9 +254,7 @@
             "description": "The name of the Repository",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The name of the Repository",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -277,9 +265,7 @@
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing images from a previous call to list images.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -290,9 +276,7 @@
               "type": "array",
               "items": {
                 "type": "string"
-              },
-              "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.",
-              "nullable": true
+              }
             },
             "x-nullable": true
           },
@@ -304,9 +288,7 @@
               "maximum": 5000,
               "minimum": 0,
               "type": "integer",
-              "description": "When paginating, skip this number of results.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             },
             "x-nullable": true
           },
@@ -318,10 +300,8 @@
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.",
               "format": "int32",
-              "default": 2000,
-              "nullable": true
+              "default": 2000
             },
             "x-nullable": true
           },
@@ -332,9 +312,7 @@
             "schema": {
               "maxLength": 1024,
               "minLength": 0,
-              "type": "string",
-              "description": "Expression to filter the result set.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -433,8 +411,7 @@
               "maxLength": 256,
               "minLength": 1,
               "pattern": "^[a-z\\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\\d]+))*:[a-z\\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\\d]+))*$",
-              "type": "string",
-              "description": "The name and tag of the image of the image. Format \"ExampleImageName:latest,0.1,0.2\""
+              "type": "string"
             }
           }
         ],
@@ -503,8 +480,7 @@
               "maxLength": 256,
               "minLength": 1,
               "pattern": "^[a-z\\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\\d]+))*:[a-z\\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\\d]+))*$",
-              "type": "string",
-              "description": "The name and tag of the image of the image. Format \"ExampleImageName:latest\""
+              "type": "string"
             }
           }
         ],
@@ -615,8 +591,7 @@
             "description": "The name and tag of the image of the image. Format \"ExampleImageName:latest\"",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The name and tag of the image of the image. Format \"ExampleImageName:latest\""
+              "type": "string"
             }
           }
         ],
@@ -677,9 +652,7 @@
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing instruments from a previous call to list instruments.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -690,9 +663,7 @@
               "type": "array",
               "items": {
                 "type": "string"
-              },
-              "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.",
-              "nullable": true
+              }
             },
             "x-nullable": true
           },
@@ -704,9 +675,7 @@
               "maximum": 5000,
               "minimum": 0,
               "type": "integer",
-              "description": "When paginating, skip this number of results.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             },
             "x-nullable": true
           },
@@ -718,10 +687,8 @@
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.",
               "format": "int32",
-              "default": 2000,
-              "nullable": true
+              "default": 2000
             },
             "x-nullable": true
           },
@@ -732,9 +699,7 @@
             "schema": {
               "maxLength": 1024,
               "minLength": 0,
-              "type": "string",
-              "description": "Expression to filter the result set.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -808,7 +773,7 @@
                 "minMemory": "0.5Mi",
                 "maxMemory": "500Mi",
                 "argumentDefinitions": {
-                  "secreT1": {
+                  "SECRET1": {
                     "dataType": "SecureString",
                     "required": true,
                     "description": "Database credentials",
@@ -851,7 +816,7 @@
                 "minMemory": "0.5Mi",
                 "maxMemory": "500Mi",
                 "argumentDefinitions": {
-                  "secreT1": {
+                  "SECRET1": {
                     "dataType": "SecureString",
                     "required": true,
                     "description": "Database credentials",
@@ -894,7 +859,7 @@
                 "minMemory": "0.5Mi",
                 "maxMemory": "500Mi",
                 "argumentDefinitions": {
-                  "secreT1": {
+                  "SECRET1": {
                     "dataType": "SecureString",
                     "required": true,
                     "description": "Database credentials",
@@ -937,7 +902,7 @@
                 "minMemory": "0.5Mi",
                 "maxMemory": "500Mi",
                 "argumentDefinitions": {
-                  "secreT1": {
+                  "SECRET1": {
                     "dataType": "SecureString",
                     "required": true,
                     "description": "Database credentials",
@@ -986,7 +951,7 @@
                   "minMemory": "0.5Mi",
                   "maxMemory": "500Mi",
                   "argumentDefinitions": {
-                    "secreT1": {
+                    "SECRET1": {
                       "dataType": "SecureString",
                       "required": true,
                       "description": "Database credentials",
@@ -1054,9 +1019,7 @@
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing instruments from a previous call to list instruments.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1067,9 +1030,7 @@
               "type": "array",
               "items": {
                 "type": "string"
-              },
-              "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.",
-              "nullable": true
+              }
             },
             "x-nullable": true
           },
@@ -1079,9 +1040,7 @@
             "description": "This field is obsolete, the value of this field would not be considered.",
             "schema": {
               "type": "integer",
-              "description": "This field is obsolete, the value of this field would not be considered.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             },
             "x-nullable": true
           },
@@ -1093,9 +1052,7 @@
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             },
             "x-nullable": true
           },
@@ -1107,9 +1064,7 @@
               "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
-              "type": "string",
-              "description": "Expression to filter the result set.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1134,10 +1089,10 @@
                       "startDate": "2019-12-11T00:00:00.0000000+00:00",
                       "endDate": "2019-12-11T00:06:12.0000000+00:00",
                       "arguments": {
-                        "exchangeCode": "XLON"
+                        "ExchangeCode": "XLON"
                       },
                       "environmentVariables": {
-                        "secret1": "{secret:/Scheduler/Secrets/secret1}"
+                        "Secret1": "{secret:/Scheduler/Secrets/secret1}"
                       },
                       "jobStatus": "Succeeded",
                       "jobResult": "Data load",
@@ -1203,9 +1158,7 @@
               "maxLength": 36,
               "minLength": 0,
               "pattern": "^[a-zA-Z0-9\\-]+$",
-              "type": "string",
-              "description": "The unique ID of the run",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1229,10 +1182,10 @@
                   "startDate": "2019-12-11T00:00:00.0000000+00:00",
                   "endDate": "2019-12-11T00:06:12.0000000+00:00",
                   "arguments": {
-                    "exchangeCode": "XLON"
+                    "ExchangeCode": "XLON"
                   },
                   "environmentVariables": {
-                    "secret1": "{secret:/Scheduler/Secrets/secret1}"
+                    "Secret1": "{secret:/Scheduler/Secrets/secret1}"
                   },
                   "jobStatus": "Succeeded",
                   "jobResult": "Data load",
@@ -1295,9 +1248,7 @@
               "maxLength": 36,
               "minLength": 0,
               "pattern": "^[a-zA-Z0-9\\-]+$",
-              "type": "string",
-              "description": "The RunId of the job run",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1395,7 +1346,7 @@
                 "minMemory": "0.5Mi",
                 "maxMemory": "500Mi",
                 "argumentDefinitions": {
-                  "updatedSecret": {
+                  "UpdatedSecret": {
                     "dataType": "SecureString",
                     "required": true,
                     "description": "Database credentials",
@@ -1403,7 +1354,7 @@
                     "constraints": "None",
                     "passedAs": "EnvironmentVariable"
                   },
-                  "updatedArgument": {
+                  "UpdatedArgument": {
                     "dataType": "String",
                     "required": true,
                     "description": "Command line argument",
@@ -1442,7 +1393,7 @@
                 "minMemory": "0.5Mi",
                 "maxMemory": "500Mi",
                 "argumentDefinitions": {
-                  "updatedSecret": {
+                  "UpdatedSecret": {
                     "dataType": "SecureString",
                     "required": true,
                     "description": "Database credentials",
@@ -1450,7 +1401,7 @@
                     "constraints": "None",
                     "passedAs": "EnvironmentVariable"
                   },
-                  "updatedArgument": {
+                  "UpdatedArgument": {
                     "dataType": "String",
                     "required": true,
                     "description": "Command line argument",
@@ -1489,7 +1440,7 @@
                 "minMemory": "0.5Mi",
                 "maxMemory": "500Mi",
                 "argumentDefinitions": {
-                  "updatedSecret": {
+                  "UpdatedSecret": {
                     "dataType": "SecureString",
                     "required": true,
                     "description": "Database credentials",
@@ -1497,7 +1448,7 @@
                     "constraints": "None",
                     "passedAs": "EnvironmentVariable"
                   },
-                  "updatedArgument": {
+                  "UpdatedArgument": {
                     "dataType": "String",
                     "required": true,
                     "description": "Command line argument",
@@ -1536,7 +1487,7 @@
                 "minMemory": "0.5Mi",
                 "maxMemory": "500Mi",
                 "argumentDefinitions": {
-                  "updatedSecret": {
+                  "UpdatedSecret": {
                     "dataType": "SecureString",
                     "required": true,
                     "description": "Database credentials",
@@ -1544,7 +1495,7 @@
                     "constraints": "None",
                     "passedAs": "EnvironmentVariable"
                   },
-                  "updatedArgument": {
+                  "UpdatedArgument": {
                     "dataType": "String",
                     "required": true,
                     "description": "Command line argument",
@@ -1594,7 +1545,7 @@
                   "minMemory": "0.5Mi",
                   "maxMemory": "500Mi",
                   "argumentDefinitions": {
-                    "secreT1": {
+                    "SECRET1": {
                       "dataType": "SecureString",
                       "required": true,
                       "description": "Database credentials",
@@ -1658,8 +1609,7 @@
             "description": "The scope of the job",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The scope of the job"
+              "type": "string"
             }
           },
           {
@@ -1668,8 +1618,7 @@
             "description": "The code of the job",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The code of the job"
+              "type": "string"
             }
           }
         ],
@@ -1727,8 +1676,7 @@
             "description": "The scope of the job",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The scope of the job"
+              "type": "string"
             }
           },
           {
@@ -1737,8 +1685,7 @@
             "description": "The code of the job",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The code of the job"
+              "type": "string"
             }
           }
         ],
@@ -1751,7 +1698,7 @@
               },
               "example": {
                 "arguments": {
-                  "exchangeCode": "XLON"
+                  "ExchangeCode": "XLON"
                 },
                 "notifications": [
                   {
@@ -1770,7 +1717,7 @@
               },
               "example": {
                 "arguments": {
-                  "exchangeCode": "XLON"
+                  "ExchangeCode": "XLON"
                 },
                 "notifications": [
                   {
@@ -1789,7 +1736,7 @@
               },
               "example": {
                 "arguments": {
-                  "exchangeCode": "XLON"
+                  "ExchangeCode": "XLON"
                 },
                 "notifications": [
                   {
@@ -1808,7 +1755,7 @@
               },
               "example": {
                 "arguments": {
-                  "exchangeCode": "XLON"
+                  "ExchangeCode": "XLON"
                 },
                 "notifications": [
                   {
@@ -1826,7 +1773,7 @@
         },
         "responses": {
           "202": {
-            "description": "Success",
+            "description": "Accepted",
             "content": {
               "application/json": {
                 "schema": {
@@ -1887,8 +1834,7 @@
             "description": "The scope of the job",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The scope of the job"
+              "type": "string"
             }
           },
           {
@@ -1897,8 +1843,7 @@
             "description": "The code of the job",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The code of the job"
+              "type": "string"
             }
           }
         ],
@@ -2006,9 +1951,7 @@
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string",
-              "description": "The pagination token to use to continue listing instruments from a previous call to list instruments.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -2019,9 +1962,7 @@
               "type": "array",
               "items": {
                 "type": "string"
-              },
-              "description": "Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.",
-              "nullable": true
+              }
             },
             "x-nullable": true
           },
@@ -2033,9 +1974,7 @@
               "maximum": 5000,
               "minimum": 0,
               "type": "integer",
-              "description": "When paginating, skip this number of results.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             },
             "x-nullable": true
           },
@@ -2047,10 +1986,8 @@
               "maximum": 5000,
               "minimum": 1,
               "type": "integer",
-              "description": "When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.",
               "format": "int32",
-              "default": 2000,
-              "nullable": true
+              "default": 2000
             },
             "x-nullable": true
           },
@@ -2061,9 +1998,7 @@
             "schema": {
               "maxLength": 1024,
               "minLength": 0,
-              "type": "string",
-              "description": "Expression to filter the result set.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -2152,7 +2087,7 @@
                 "author": "Schedule author",
                 "owner": "Schedule owner",
                 "arguments": {
-                  "argument": "Argument value"
+                  "Argument": "Argument value"
                 },
                 "trigger": {
                   "timeTrigger": {
@@ -2198,7 +2133,7 @@
                 "author": "Schedule author",
                 "owner": "Schedule owner",
                 "arguments": {
-                  "argument": "Argument value"
+                  "Argument": "Argument value"
                 },
                 "trigger": {
                   "timeTrigger": {
@@ -2244,7 +2179,7 @@
                 "author": "Schedule author",
                 "owner": "Schedule owner",
                 "arguments": {
-                  "argument": "Argument value"
+                  "Argument": "Argument value"
                 },
                 "trigger": {
                   "timeTrigger": {
@@ -2290,7 +2225,7 @@
                 "author": "Schedule author",
                 "owner": "Schedule owner",
                 "arguments": {
-                  "argument": "Argument value"
+                  "Argument": "Argument value"
                 },
                 "trigger": {
                   "timeTrigger": {
@@ -2343,7 +2278,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -2389,7 +2324,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -2435,7 +2370,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -2518,8 +2453,7 @@
             "description": "The scope of Schedule",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The scope of Schedule"
+              "type": "string"
             }
           },
           {
@@ -2528,8 +2462,7 @@
             "description": "The code of the Schedule",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The code of the Schedule"
+              "type": "string"
             }
           }
         ],
@@ -2555,7 +2488,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -2601,7 +2534,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -2647,7 +2580,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -2728,8 +2661,7 @@
             "description": "Scope of the schedule to be updated",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Scope of the schedule to be updated"
+              "type": "string"
             }
           },
           {
@@ -2738,8 +2670,7 @@
             "description": "Code of the schedule to be updated",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Code of the schedule to be updated"
+              "type": "string"
             }
           }
         ],
@@ -2760,7 +2691,7 @@
                 "author": "Updated author",
                 "owner": "Updated owner",
                 "arguments": {
-                  "updatedArgument": "Updated value"
+                  "UpdatedArgument": "Updated value"
                 },
                 "trigger": {
                   "timeTrigger": {
@@ -2802,7 +2733,7 @@
                 "author": "Updated author",
                 "owner": "Updated owner",
                 "arguments": {
-                  "updatedArgument": "Updated value"
+                  "UpdatedArgument": "Updated value"
                 },
                 "trigger": {
                   "timeTrigger": {
@@ -2844,7 +2775,7 @@
                 "author": "Updated author",
                 "owner": "Updated owner",
                 "arguments": {
-                  "updatedArgument": "Updated value"
+                  "UpdatedArgument": "Updated value"
                 },
                 "trigger": {
                   "timeTrigger": {
@@ -2886,7 +2817,7 @@
                 "author": "Updated author",
                 "owner": "Updated owner",
                 "arguments": {
-                  "updatedArgument": "Updated value"
+                  "UpdatedArgument": "Updated value"
                 },
                 "trigger": {
                   "timeTrigger": {
@@ -2939,7 +2870,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -2985,7 +2916,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -3031,7 +2962,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -3112,8 +3043,7 @@
             "description": "Scope of the schedule to be deleted",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Scope of the schedule to be deleted"
+              "type": "string"
             }
           },
           {
@@ -3122,14 +3052,13 @@
             "description": "Code of the schedule to be deleted",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Code of the schedule to be deleted"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "The details of the input related failure",
@@ -3184,8 +3113,7 @@
             "description": "The schedule scope",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The schedule scope"
+              "type": "string"
             }
           },
           {
@@ -3194,14 +3122,13 @@
             "description": "The schedule cde",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The schedule cde"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "202": {
-            "description": "Success",
+            "description": "Accepted",
             "content": {
               "text/plain": {
                 "schema": {
@@ -3312,8 +3239,7 @@
             "description": "Scope of the schedule to be enabled/disabled",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Scope of the schedule to be enabled/disabled"
+              "type": "string"
             }
           },
           {
@@ -3322,8 +3248,7 @@
             "description": "Code of the schedule to be enabled/disabled",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Code of the schedule to be enabled/disabled"
+              "type": "string"
             }
           },
           {
@@ -3332,8 +3257,7 @@
             "description": "Specify whether to enable or disable the schedule",
             "required": true,
             "schema": {
-              "type": "boolean",
-              "description": "Specify whether to enable or disable the schedule"
+              "type": "boolean"
             }
           }
         ],
@@ -3359,7 +3283,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -3405,7 +3329,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -3451,7 +3375,7 @@
                   "author": "Schedule author",
                   "owner": "Schedule owner",
                   "arguments": {
-                    "argument": "Argument value"
+                    "Argument": "Argument value"
                   },
                   "trigger": {
                     "timeTrigger": {
@@ -3531,6 +3455,7 @@
         "type": "object",
         "properties": {
           "description": {
+            "minLength": 1,
             "type": "string"
           },
           "action": {
@@ -3569,6 +3494,7 @@
             "nullable": true
           },
           "description": {
+            "minLength": 1,
             "type": "string"
           },
           "actions": {
@@ -3630,6 +3556,7 @@
         "type": "object",
         "properties": {
           "dataType": {
+            "minLength": 1,
             "type": "string",
             "description": "Data type of the argument"
           },
@@ -3654,6 +3581,7 @@
             "nullable": true
           },
           "passedAs": {
+            "minLength": 1,
             "type": "string",
             "description": "Specifies how this argument should be passed in\r\nAllowed values are: CommandLine or EnvironmentVariable\r\n\r\nDefaults to: CommandLine"
           },
@@ -3709,6 +3637,7 @@
             "description": "Description of this job"
           },
           "imageName": {
+            "minLength": 1,
             "type": "string",
             "description": "The name of the Docker image that contains this job"
           },
@@ -3818,7 +3747,8 @@
           "arguments": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "description": "All arguments specified by this Schedule that will be passed in to the Job",
             "nullable": true
@@ -3856,12 +3786,15 @@
             "format": "int32"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "displayName": {
+            "minLength": 1,
             "type": "string"
           },
           "description": {
+            "minLength": 1,
             "type": "string"
           },
           "required": {
@@ -3892,7 +3825,7 @@
             }
           },
           "actions": {
-            "minLength": 1,
+            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ActionId"
@@ -4322,6 +4255,7 @@
         "type": "object",
         "properties": {
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "errorDetails": {
@@ -4358,18 +4292,9 @@
           "instance": {
             "type": "string",
             "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": {}
       },
       "LusidValidationProblemDetails": {
         "required": [
@@ -4379,6 +4304,7 @@
         "type": "object",
         "properties": {
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "errorDetails": {
@@ -4425,18 +4351,9 @@
           "instance": {
             "type": "string",
             "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": {}
       },
       "Notification": {
         "type": "object",
@@ -4913,7 +4830,8 @@
           "arguments": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "description": "All arguments specified by this Schedule that will be passed in to the Job",
             "nullable": true
@@ -4943,7 +4861,8 @@
           "arguments": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "description": "All arguments needed for the Job to run",
             "nullable": true
@@ -5108,6 +5027,7 @@
             "description": "Description of this job"
           },
           "imageName": {
+            "minLength": 1,
             "type": "string",
             "description": "The name of the Docker image that contains this job"
           },
@@ -5213,7 +5133,8 @@
           "arguments": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "description": "Updated arguments to be passed to the job\r\nNote: The new arguments will completely replace old arguments",
             "nullable": true
@@ -5246,15 +5167,19 @@
         "type": "object",
         "properties": {
           "dockerLoginCommand": {
+            "minLength": 1,
             "type": "string"
           },
           "buildVersionedDockerImageCommand": {
+            "minLength": 1,
             "type": "string"
           },
           "tagVersionedDockerImageCommand": {
+            "minLength": 1,
             "type": "string"
           },
           "pushVersionedDockerImageCommand": {
+            "minLength": 1,
             "type": "string"
           },
           "tagLatestDockerImageCommand": {
