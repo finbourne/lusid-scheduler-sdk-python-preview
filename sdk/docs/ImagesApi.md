@@ -4,18 +4,18 @@ All URIs are relative to *https://fbn-ci.lusid.com/scheduler2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_image**](ImagesApi.md#delete_image) | **DELETE** /api/images/{name} | [EXPERIMENTAL] DeleteImage: Delete an image from Harbor
-[**download_image**](ImagesApi.md#download_image) | **GET** /api/images/{name}/contents | [EXPERIMENTAL] DownloadImage: Download the file from Harbor
-[**get_image**](ImagesApi.md#get_image) | **GET** /api/images/{name} | [EXPERIMENTAL] GetImage: Get an image metadata from Harbor
-[**list_images**](ImagesApi.md#list_images) | **GET** /api/images/repository/{name} | [EXPERIMENTAL] ListImages: List all images in a Repository
-[**list_repositories**](ImagesApi.md#list_repositories) | **GET** /api/images/repository | [EXPERIMENTAL] ListRepositories: List all repositories
-[**upload_image**](ImagesApi.md#upload_image) | **POST** /api/images | [EXPERIMENTAL] UploadImage: Uploads an image to be used for Scheduler jobs
+[**delete_image**](ImagesApi.md#delete_image) | **DELETE** /api/images/{name} | [EXPERIMENTAL] DeleteImage: Delete a Docker Image
+[**download_image**](ImagesApi.md#download_image) | **GET** /api/images/{name}/contents | [EXPERIMENTAL] DownloadImage: Download Docker Image
+[**get_image**](ImagesApi.md#get_image) | **GET** /api/images/{name} | [EXPERIMENTAL] GetImage: Get metadata of a Docker Image
+[**list_images**](ImagesApi.md#list_images) | **GET** /api/images/repository/{name} | [EXPERIMENTAL] ListImages: List all images under same image repository
+[**list_repositories**](ImagesApi.md#list_repositories) | **GET** /api/images/repository | [EXPERIMENTAL] ListRepositories: List all Docker image repositories
+[**upload_image**](ImagesApi.md#upload_image) | **POST** /api/images | [EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs
 
 
 # **delete_image**
 > str delete_image(name)
 
-[EXPERIMENTAL] DeleteImage: Delete an image from Harbor
+[EXPERIMENTAL] DeleteImage: Delete a Docker Image
 
 ### Example
 
@@ -47,10 +47,10 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid_scheduler.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid_scheduler.ImagesApi(api_client)
-    name = 'name_example' # str | The name and tag of the image of the image. Format \"ExampleImageName:latest,0.1,0.2\"
+    name = 'name_example' # str | The name and tag of the image. Format \"ExampleImageName:0.1\"
 
     try:
-        # [EXPERIMENTAL] DeleteImage: Delete an image from Harbor
+        # [EXPERIMENTAL] DeleteImage: Delete a Docker Image
         api_response = api_instance.delete_image(name)
         pprint(api_response)
     except ApiException as e:
@@ -61,7 +61,7 @@ with lusid_scheduler.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| The name and tag of the image of the image. Format \&quot;ExampleImageName:latest,0.1,0.2\&quot; | 
+ **name** | **str**| The name and tag of the image. Format \&quot;ExampleImageName:0.1\&quot; | 
 
 ### Return type
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 # **download_image**
 > file download_image(name)
 
-[EXPERIMENTAL] DownloadImage: Download the file from Harbor
+[EXPERIMENTAL] DownloadImage: Download Docker Image
 
 ### Example
 
@@ -124,7 +124,7 @@ with lusid_scheduler.ApiClient(configuration) as api_client:
     name = 'name_example' # str | The name and tag of the image of the image. Format \"ExampleImageName:latest\"
 
     try:
-        # [EXPERIMENTAL] DownloadImage: Download the file from Harbor
+        # [EXPERIMENTAL] DownloadImage: Download Docker Image
         api_response = api_instance.download_image(name)
         pprint(api_response)
     except ApiException as e:
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 # **get_image**
 > Image get_image(name)
 
-[EXPERIMENTAL] GetImage: Get an image metadata from Harbor
+[EXPERIMENTAL] GetImage: Get metadata of a Docker Image
 
 ### Example
 
@@ -194,10 +194,10 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 with lusid_scheduler.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = lusid_scheduler.ImagesApi(api_client)
-    name = 'name_example' # str | The name and tag of the image of the image. Format \"ExampleImageName:latest\"
+    name = 'name_example' # str | The name and tag of a Docker image. Format \"ExampleImageName:latest\"
 
     try:
-        # [EXPERIMENTAL] GetImage: Get an image metadata from Harbor
+        # [EXPERIMENTAL] GetImage: Get metadata of a Docker Image
         api_response = api_instance.get_image(name)
         pprint(api_response)
     except ApiException as e:
@@ -208,7 +208,7 @@ with lusid_scheduler.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| The name and tag of the image of the image. Format \&quot;ExampleImageName:latest\&quot; | 
+ **name** | **str**| The name and tag of a Docker image. Format \&quot;ExampleImageName:latest\&quot; | 
 
 ### Return type
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 # **list_images**
 > ResourceListOfImageSummary list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
 
-[EXPERIMENTAL] ListImages: List all images in a Repository
+[EXPERIMENTAL] ListImages: List all images under same image repository
 
 ### Example
 
@@ -275,7 +275,7 @@ limit = 2000 # int | When paginating, limit the number of returned results to th
 filter = 'filter_example' # str | Expression to filter the result set. (optional)
 
     try:
-        # [EXPERIMENTAL] ListImages: List all images in a Repository
+        # [EXPERIMENTAL] ListImages: List all images under same image repository
         api_response = api_instance.list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 # **list_repositories**
 > ResourceListOfRepository list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
 
-[EXPERIMENTAL] ListRepositories: List all repositories
+[EXPERIMENTAL] ListRepositories: List all Docker image repositories
 
 ### Example
 
@@ -357,7 +357,7 @@ limit = 2000 # int | When paginating, limit the number of returned results to th
 filter = 'filter_example' # str | Expression to filter the result set. (optional)
 
     try:
-        # [EXPERIMENTAL] ListRepositories: List all repositories
+        # [EXPERIMENTAL] ListRepositories: List all Docker image repositories
         api_response = api_instance.list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
         pprint(api_response)
     except ApiException as e:
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 # **upload_image**
 > UploadImageInstructions upload_image(upload_image_request)
 
-[EXPERIMENTAL] UploadImage: Uploads an image to be used for Scheduler jobs
+[EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs
 
 Every image must have at least one tag. Note: your image will not be available until the returned Docker commands are executed.
 
@@ -436,7 +436,7 @@ with lusid_scheduler.ApiClient(configuration) as api_client:
     upload_image_request = {"imageName":"example-image-name:0.0.1"} # UploadImageRequest | Request to upload image
 
     try:
-        # [EXPERIMENTAL] UploadImage: Uploads an image to be used for Scheduler jobs
+        # [EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs
         api_response = api_instance.upload_image(upload_image_request)
         pprint(api_response)
     except ApiException as e:

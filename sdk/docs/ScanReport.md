@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **end_time** | **datetime** | The end time of the scanning process | [optional] 
 **scan_duration** | **int** | The duration of the scan in seconds | [optional] 
 **summary** | [**ScanSummary**](ScanSummary.md) |  | [optional] 
-**vulnerabilities** | [**list[Vulnerability]**](Vulnerability.md) | List of Finbourne.Scheduler.WebApi.Dtos.Harbor.Vulnerability | [optional] 
+**vulnerabilities** | [**list[Vulnerability]**](Vulnerability.md) | List of Finbourne.Scheduler.WebApi.Dtos.Images.Vulnerability | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
