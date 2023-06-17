@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.0.794",
+    "version": "0.0.795",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -2112,8 +2112,7 @@
                     ]
                   }
                 ],
-                "enabled": true,
-                "useAsAuth": "Schedule auth userId"
+                "enabled": true
               }
             },
             "application/json": {
@@ -2159,8 +2158,7 @@
                     ]
                   }
                 ],
-                "enabled": true,
-                "useAsAuth": "Schedule auth userId"
+                "enabled": true
               }
             },
             "text/json": {
@@ -2206,8 +2204,7 @@
                     ]
                   }
                 ],
-                "enabled": true,
-                "useAsAuth": "Schedule auth userId"
+                "enabled": true
               }
             },
             "application/*+json": {
@@ -2253,8 +2250,7 @@
                     ]
                   }
                 ],
-                "enabled": true,
-                "useAsAuth": "Schedule auth userId"
+                "enabled": true
               }
             }
           },
@@ -2281,7 +2277,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -2328,7 +2323,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -2375,7 +2369,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -2494,7 +2487,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -2541,7 +2533,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -2588,7 +2579,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -2726,8 +2716,7 @@
                     ]
                   }
                 ],
-                "enabled": true,
-                "useAsAuth": "Schedule auth userId"
+                "enabled": true
               }
             },
             "application/json": {
@@ -2769,8 +2758,7 @@
                     ]
                   }
                 ],
-                "enabled": true,
-                "useAsAuth": "Schedule auth userId"
+                "enabled": true
               }
             },
             "text/json": {
@@ -2812,8 +2800,7 @@
                     ]
                   }
                 ],
-                "enabled": true,
-                "useAsAuth": "Schedule auth userId"
+                "enabled": true
               }
             },
             "application/*+json": {
@@ -2855,8 +2842,7 @@
                     ]
                   }
                 ],
-                "enabled": true,
-                "useAsAuth": "Schedule auth userId"
+                "enabled": true
               }
             }
           },
@@ -2883,7 +2869,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -2930,7 +2915,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -2977,7 +2961,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -3299,7 +3282,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -3346,7 +3328,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -3393,7 +3374,6 @@
                   "description": "Schedule description",
                   "author": "Schedule author",
                   "owner": "Schedule owner",
-                  "useAsAuth": "Schedule auth userId",
                   "arguments": {
                     "Argument": "Argument value"
                   },
@@ -3786,14 +3766,6 @@
           "enabled": {
             "type": "boolean",
             "description": "Specify whether schedule is enabled or not\r\nDefaults to true"
-          },
-          "useAsAuth": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string",
-            "description": "Id of user associated with schedule. All calls to FINBOURNE services\r\nas part of execution of this schedule will be authenticated as this \r\nuser. Can be null, in which case we'll default to that of the user \r\nmaking this request",
-            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -4855,11 +4827,6 @@
             "description": "Name of owner of this schedule",
             "nullable": true
           },
-          "useAsAuth": {
-            "type": "string",
-            "description": "User to runs schedule when automatically run and authenticates \r\nrequests in the schedule",
-            "nullable": true
-          },
           "arguments": {
             "type": "object",
             "additionalProperties": {
@@ -5185,14 +5152,6 @@
           "enabled": {
             "type": "boolean",
             "description": "Specify whether schedule is enabled or not\r\nDefaults to true"
-          },
-          "useAsAuth": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string",
-            "description": "Id of user associated with schedule. All calls to FINBOURNE services\r\nas part of execution of this schedule will be authenticated as this \r\nuser. Can be null, in which case we'll default to that of the user \r\nmaking this request",
-            "nullable": true
           }
         },
         "additionalProperties": false,
