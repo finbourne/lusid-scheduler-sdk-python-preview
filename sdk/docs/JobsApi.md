@@ -583,7 +583,7 @@ with lusid_scheduler.ApiClient(configuration) as api_client:
     api_instance = lusid_scheduler.JobsApi(api_client)
     scope = 'scope_example' # str | The scope of the job
 code = 'code_example' # str | The code of the job
-start_job_request = {"arguments":{"ExchangeCode":"XLON"},"notifications":[{"fireOn":"Completed","transport":"Email","destination":["Team A"]}]} # StartJobRequest | The request for starting job
+start_job_request = {"arguments":{"ExchangeCode":"XLON"},"notifications":[{"fireOn":"Completed","transport":"Email","destination":["Team A"]}],"useAsAuth":"job auth userId"} # StartJobRequest | The request for starting job
 
     try:
         # [EXPERIMENTAL] RunJob: Run a job immediately
