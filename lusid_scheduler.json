@@ -8,7 +8,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.0.818",
+    "version": "0.0.819",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -766,7 +766,6 @@
                 "description": "Load EOD data",
                 "imageName": "alpine",
                 "imageTag": "latest",
-                "command": "echo ExampleCommand;",
                 "ttl": 500,
                 "minCpu": "2",
                 "maxCpu": "4",
@@ -809,7 +808,6 @@
                 "description": "Load EOD data",
                 "imageName": "alpine",
                 "imageTag": "latest",
-                "command": "echo ExampleCommand;",
                 "ttl": 500,
                 "minCpu": "2",
                 "maxCpu": "4",
@@ -852,7 +850,6 @@
                 "description": "Load EOD data",
                 "imageName": "alpine",
                 "imageTag": "latest",
-                "command": "echo ExampleCommand;",
                 "ttl": 500,
                 "minCpu": "2",
                 "maxCpu": "4",
@@ -895,7 +892,6 @@
                 "description": "Load EOD data",
                 "imageName": "alpine",
                 "imageTag": "latest",
-                "command": "echo ExampleCommand;",
                 "ttl": 500,
                 "minCpu": "2",
                 "maxCpu": "4",
@@ -944,7 +940,6 @@
                   "dateCreated": "2019-12-11T00:00:00.0000000+00:00",
                   "description": "Load EOD data",
                   "dockerImage": "alpine:latest",
-                  "command": "echo ExampleCommand;",
                   "ttl": 500,
                   "minCpu": "2",
                   "maxCpu": "4",
@@ -1103,7 +1098,6 @@
                       },
                       "resultUrl": "http://exampleUri",
                       "manuallyTriggeredBy": "UserId",
-                      "command": "sh",
                       "message": "All jobs have completed successfully"
                     }
                   ],
@@ -1196,7 +1190,6 @@
                   },
                   "resultUrl": "http://exampleUri",
                   "manuallyTriggeredBy": "UserId",
-                  "command": "sh",
                   "message": "All jobs have completed successfully"
                 }
               }
@@ -1339,7 +1332,6 @@
                 "description": "Updated job description",
                 "imageName": "Updated image name",
                 "imageTag": "Updated image tag",
-                "command": "echo update;",
                 "ttl": 250,
                 "minCpu": "2",
                 "maxCpu": "4",
@@ -1386,7 +1378,6 @@
                 "description": "Updated job description",
                 "imageName": "Updated image name",
                 "imageTag": "Updated image tag",
-                "command": "echo update;",
                 "ttl": 250,
                 "minCpu": "2",
                 "maxCpu": "4",
@@ -1433,7 +1424,6 @@
                 "description": "Updated job description",
                 "imageName": "Updated image name",
                 "imageTag": "Updated image tag",
-                "command": "echo update;",
                 "ttl": 250,
                 "minCpu": "2",
                 "maxCpu": "4",
@@ -1480,7 +1470,6 @@
                 "description": "Updated job description",
                 "imageName": "Updated image name",
                 "imageTag": "Updated image tag",
-                "command": "echo update;",
                 "ttl": 250,
                 "minCpu": "2",
                 "maxCpu": "4",
@@ -1538,7 +1527,6 @@
                   "dateCreated": "2019-12-11T00:00:00.0000000+00:00",
                   "description": "Load EOD data",
                   "dockerImage": "alpine:latest",
-                  "command": "echo ExampleCommand;",
                   "ttl": 500,
                   "minCpu": "2",
                   "maxCpu": "4",
@@ -3671,11 +3659,6 @@
             "type": "string",
             "description": "The tag of the Docker image that contains this job"
           },
-          "command": {
-            "type": "string",
-            "description": "The command for running this job",
-            "nullable": true
-          },
           "ttl": {
             "type": "integer",
             "description": "Time To Live of the job run in seconds\r\nDefaults to 5 minutes(300)",
@@ -4013,11 +3996,6 @@
             "description": "Information about the docker image in the format “image_source/image_name:image_tag”",
             "nullable": true
           },
-          "command": {
-            "type": "string",
-            "description": "The command for running this job",
-            "nullable": true
-          },
           "ttl": {
             "type": "integer",
             "description": "Time To Live of the job run in seconds\r\nDefaults to 5 minutes(300)",
@@ -4142,11 +4120,6 @@
             "description": "UserId of the user that triggered the job.\r\nDefaults to null if job was ran on a Schedule",
             "nullable": true
           },
-          "command": {
-            "type": "string",
-            "description": "The command used to run the job",
-            "nullable": true
-          },
           "message": {
             "type": "string",
             "description": "Output message generated by the job runner\r\nValue will be null when the job is in a `Running` or `Pending` status",
@@ -4238,11 +4211,6 @@
           "manuallyTriggeredBy": {
             "type": "string",
             "description": "UserId of the user that triggered the job.\r\nDefaults to null if job was ran on a Schedule",
-            "nullable": true
-          },
-          "command": {
-            "type": "string",
-            "description": "The command used to run the job",
             "nullable": true
           },
           "message": {
@@ -5078,11 +5046,6 @@
             "minLength": 0,
             "type": "string",
             "description": "The tag of the Docker image that contains this job"
-          },
-          "command": {
-            "type": "string",
-            "description": "The command for running this job",
-            "nullable": true
           },
           "ttl": {
             "type": "integer",

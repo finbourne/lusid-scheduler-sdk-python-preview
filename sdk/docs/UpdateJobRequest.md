@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **description** | **str** | Description of this job | 
 **image_name** | **str** | The name of the Docker image that contains this job | 
 **image_tag** | **str** | The tag of the Docker image that contains this job | 
-**command** | **str** | The command for running this job | [optional] 
 **ttl** | **int** | Time To Live of the job run in seconds  Defaults to 5 minutes(300) | [optional] 
 **min_cpu** | **str** | Specifies  minimum number of CPUs to be allocated for the job  Default to 2 | [optional] 
 **max_cpu** | **str** | Specifies  maximum number of CPUs to be allocated for the job | [optional] 
